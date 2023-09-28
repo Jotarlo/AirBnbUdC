@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementation\Parameters\CityImplementationApplication.cs" />
+    <Compile Include="Implementation\Parameters\CountryImplementationApplication.cs" />
+    <Compile Include="Mappers\MapperBaseApplication.cs" />
+    <Compile Include="Mappers\Paremeters\CityMapperApplication.cs" />
+    <Compile Include="Mappers\Paremeters\CountryMapperApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +57,11 @@
       <Project>{6d5f4717-d517-449b-bb12-43ce2ea4101b}</Project>
       <Name>AirbnbUdc.Repository.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AirbnbUdc.Repository.Implementation\AirbnbUdc.Repository.Implementation.csproj">
+      <Project>{8754BA4B-C5BC-43C3-89BE-174C38922664}</Project>
+      <Name>AirbnbUdc.Repository.Implementation</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

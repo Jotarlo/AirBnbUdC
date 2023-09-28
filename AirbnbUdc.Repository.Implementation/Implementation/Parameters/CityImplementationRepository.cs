@@ -89,6 +89,24 @@ namespace AirbnbUdc.Repository.Implementation.Implementation.Parameters
             }
         }
 
+        /// <summary>
+        /// Método para obtener todos los registros de City en la base de datos por Id de país
+        /// </summary>
+        /// <param name="countryId">Id del país</param>
+        /// <returns>Lista de ciudades</returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public IEnumerable<CityDbModel> GetAllRecordsByCountryId(int countryId)
+        {
+            using (Core_DBEntities db = new Core_DBEntities())
+            {
+                var records = (from c in db.City
+                               where c.CountryId == countryId
+                               select c);
+                CityMapperRepository mapper = new CityMapperRepository();
+                return mapper.MapperT1toT2(records);
+            }
+        }
+
         public CityDbModel GetRecord(int recordId)
         {
             using (Core_DBEntities db = new Core_DBEntities())
@@ -107,7 +125,8 @@ namespace AirbnbUdc.Repository.Implementation.Implementation.Parameters
         /// <returns>1 cuando se actualiza, 0 cuando no se actualiza o una excepciòn</returns>
         public int UpdateRecord(CityDbModel record)
         {
-            try{
+            try
+            {
                 using (Core_DBEntities db = new Core_DBEntities())
                 {
                     CityMapperRepository mapper = new CityMapperRepository();
@@ -117,11 +136,11 @@ namespace AirbnbUdc.Repository.Implementation.Implementation.Parameters
                     return db.SaveChanges();
                 }
             }
-            catch(System.Exception e)
+            catch (System.Exception e)
             {
                 throw e;
             }
-            
+
         }
     }
 }
