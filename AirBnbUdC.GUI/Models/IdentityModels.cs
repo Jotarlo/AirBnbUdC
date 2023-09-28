@@ -29,5 +29,7 @@ namespace AirBnbUdC.GUI.Models
         {
             return new ApplicationDbContext();
         }
+
+        object placeHolderVariable;
     }
 }
