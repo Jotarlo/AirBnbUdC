@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Parameters\ICityRepository.cs" />
     <Compile Include="Contracts\Parameters\ICountryRepository.cs" />
     <Compile Include="DbModel\Parameters\CityDbModel.cs" />
     <Compile Include="DbModel\Parameters\CountryDbModel.cs" />

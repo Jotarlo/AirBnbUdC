@@ -9,7 +9,7 @@ namespace AirbnbUdc.Repository.Contracts.Contracts.Parameters
         int DeleteRecord(int recordId);
         int UpdateRecord(CountryDbModel record);
         CountryDbModel GetRecord(int recordId);
-        IEnumerable<CountryDbModel> GetAllRecords();
+        IEnumerable<CountryDbModel> GetAllRecords(string filter);
 
     }
 }

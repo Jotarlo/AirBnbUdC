@@ -92,8 +92,10 @@
     <Compile Include="DataModel\Reservation.cs">
       <DependentUpon>DataModelCore.tt</DependentUpon>
     </Compile>
+    <Compile Include="Implementation\Parameters\CityImplementationRepository.cs" />
     <Compile Include="Implementation\Parameters\CountryImplementationRepository.cs" />
     <Compile Include="Mappers\BaseMapperRepository.cs" />
+    <Compile Include="Mappers\Parameters\CityMapperRepository.cs" />
     <Compile Include="Mappers\Parameters\CountryMapperRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

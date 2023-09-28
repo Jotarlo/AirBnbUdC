@@ -8,24 +8,24 @@ using System.Linq;
 
 namespace AirbnbUdc.Repository.Implementation.Implementation.Parameters
 {
-    public class CountryImplementationRepository : ICountryRepository
+    public class CityImplementationRepository : ICityRepository
     {
         /// <summary>
-        /// Método para crear un registro de Country en la base de datos
+        /// Método para crear un registro de City en la base de datos
         /// </summary>
         /// <param name="record">Registro a guardar</param>
         /// <returns>El registro guardado con id cuando se guarda o sin Id cuando no. O una excepción</returns>
-        public CountryDbModel CreateRecord(CountryDbModel record)
+        public CityDbModel CreateRecord(CityDbModel record)
         {
             try
             {
                 using (Core_DBEntities db = new Core_DBEntities())
                 {
-                    if (db.Country.Any(x => x.CountryName.Equals(record.Name)))
+                    if (db.City.Any(x => x.CityName.Equals(record.Name)))
                     {
-                        CountryMapperRepository mapper = new CountryMapperRepository();
-                        Country dbRecord = mapper.MapperT2toT1(record);
-                        db.Country.Add(dbRecord);
+                        CityMapperRepository mapper = new CityMapperRepository();
+                        City dbRecord = mapper.MapperT2toT1(record);
+                        db.City.Add(dbRecord);
                         db.SaveChanges();
                         record.Id = dbRecord.Id;
                     }
@@ -39,7 +39,7 @@ namespace AirbnbUdc.Repository.Implementation.Implementation.Parameters
         }
 
         /// <summary>
-        /// Método para eliminar un registro de Country en la base de datos
+        /// Método para eliminar un registro de City en la base de datos
         /// </summary>
         /// <param name="recordId">Id del registro a eliminar</param>
         /// <returns>1 cuando se elimina, 0 cuando no existe, o excepción</returns>
@@ -49,10 +49,10 @@ namespace AirbnbUdc.Repository.Implementation.Implementation.Parameters
             {
                 using (Core_DBEntities db = new Core_DBEntities())
                 {
-                    Country record = db.Country.FirstOrDefault(x => x.Id == recordId);
+                    City record = db.City.FirstOrDefault(x => x.Id == recordId);
                     if (record != null)
                     {
-                        db.Country.Remove(record);
+                        db.City.Remove(record);
                         db.SaveChanges();
                         return 1;
                     }
@@ -70,49 +70,49 @@ namespace AirbnbUdc.Repository.Implementation.Implementation.Parameters
         }
 
         /// <summary>
-        /// Método para obtener todos los registros de Country en la base de datos
+        /// Método para obtener todos los registros de City en la base de datos
         /// </summary>
         /// <returns>Listado de registros con países</returns>
-        public IEnumerable<CountryDbModel> GetAllRecords(string filter)
+        public IEnumerable<CityDbModel> GetAllRecords(string filter)
         {
             using (Core_DBEntities db = new Core_DBEntities())
             {
                 var records = (
-                    from c in db.Country
-                    where c.CountryName.Contains(filter)
+                    from c in db.City
+                    where c.CityName.Contains(filter)
                     select c
                     );
-                //var recordsLambda = db.Country.Where(x => x.CountryName.Contains(filter));
+                //var recordsLambda = db.City.Where(x => x.CityName.Contains(filter));
 
-                CountryMapperRepository mapper = new CountryMapperRepository();
+                CityMapperRepository mapper = new CityMapperRepository();
                 return mapper.MapperT1toT2(records);
             }
         }
 
-        public CountryDbModel GetRecord(int recordId)
+        public CityDbModel GetRecord(int recordId)
         {
             using (Core_DBEntities db = new Core_DBEntities())
             {
-                var record = db.Country.Find(recordId);
+                var record = db.City.Find(recordId);
 
-                CountryMapperRepository mapper = new CountryMapperRepository();
+                CityMapperRepository mapper = new CityMapperRepository();
                 return mapper.MapperT1toT2(record);
             }
         }
 
         /// <summary>
-        /// Método para actualizar un registro de Country en la base de datos
+        /// Método para actualizar un registro de City en la base de datos
         /// </summary>
         /// <param name="record">Registro con nuevos datos</param>
         /// <returns>1 cuando se actualiza, 0 cuando no se actualiza o una excepciòn</returns>
-        public int UpdateRecord(CountryDbModel record)
+        public int UpdateRecord(CityDbModel record)
         {
             try{
                 using (Core_DBEntities db = new Core_DBEntities())
                 {
-                    CountryMapperRepository mapper = new CountryMapperRepository();
-                    Country dbRecord = mapper.MapperT2toT1(record);
-                    db.Country.Attach(dbRecord);
+                    CityMapperRepository mapper = new CityMapperRepository();
+                    City dbRecord = mapper.MapperT2toT1(record);
+                    db.City.Attach(dbRecord);
                     db.Entry(dbRecord).State = EntityState.Modified;
                     return db.SaveChanges();
                 }
