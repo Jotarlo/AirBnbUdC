@@ -173,9 +173,14 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Parameters\CitiesController.cs" />
+    <Compile Include="Controllers\Parameters\CountryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mappers\MapperBaseGUI.cs" />
+    <Compile Include="Mappers\Parameters\CountryMapperGUI.cs" />
+    <Compile Include="Mappers\Parameters\CityMapperGUI.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -256,10 +261,19 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Country\Create.cshtml" />
+    <Content Include="Views\Country\Delete.cshtml" />
+    <Content Include="Views\Country\Details.cshtml" />
+    <Content Include="Views\Country\Edit.cshtml" />
+    <Content Include="Views\Country\Index.cshtml" />
+    <Content Include="Views\Cities\Create.cshtml" />
+    <Content Include="Views\Cities\Delete.cshtml" />
+    <Content Include="Views\Cities\Details.cshtml" />
+    <Content Include="Views\Cities\Edit.cshtml" />
+    <Content Include="Views\Cities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Parameters\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -295,6 +309,10 @@
     <ProjectReference Include="..\AirbnbUdC.Application.Contracts\AirbnbUdC.Application.Contracts.csproj">
       <Project>{48c74c74-df29-4f00-950c-19bdda103c0c}</Project>
       <Name>AirbnbUdC.Application.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AirbnbUdc.Application.Implementation\AirbnbUdc.Application.Implementation.csproj">
+      <Project>{BA0B6C94-A1EA-4ABA-A2A4-9C1425A099DC}</Project>
+      <Name>AirbnbUdc.Application.Implementation</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
