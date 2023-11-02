@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
@@ -22,14 +22,12 @@
                     <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    @using Microsoft.AspNet.Identity
-                    @if (Request.IsAuthenticated)
-                    {
-                        <li>@Html.ActionLink("País", "Index", "Country", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Ciudad", "Index", "Cities", new { area = "" }, new { @class = "nav-link" })</li>
-                    }
-                    </ul>
-                 @Html.Partial("_LoginPartial")
+
+                    <li>@Html.ActionLink("País", "Index", "Country", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Ciudad", "Index", "Cities", new { area = "" }, new { @class = "nav-link" })</li>
+
+                </ul>
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </nav>

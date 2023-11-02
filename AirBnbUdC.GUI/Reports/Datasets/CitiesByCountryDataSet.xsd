@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CitiesByCountryDataSet" targetNamespace="http://tempuri.org/CitiesByCountryDataSet.xsd" xmlns:mstns="http://tempuri.org/CitiesByCountryDataSet.xsd" xmlns="http://tempuri.org/CitiesByCountryDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CitiesByCountryDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="CitiesByCountryDataSet" msprop:Generator_DataSetName="CitiesByCountryDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Country" msprop:Generator_RowEvHandlerName="CountryRowChangeEventHandler" msprop:Generator_RowDeletedName="CountryRowDeleted" msprop:Generator_RowDeletingName="CountryRowDeleting" msprop:Generator_RowEvArgName="CountryRowChangeEvent" msprop:Generator_TablePropName="Country" msprop:Generator_RowChangedName="CountryRowChanged" msprop:Generator_RowChangingName="CountryRowChanging" msprop:Generator_TableClassName="CountryDataTable" msprop:Generator_RowClassName="CountryRow" msprop:Generator_TableVarName="tableCountry" msprop:Generator_UserTableName="Country">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_UserColumnName="Id" type="xs:string" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="City" msprop:Generator_RowEvHandlerName="CityRowChangeEventHandler" msprop:Generator_RowDeletedName="CityRowDeleted" msprop:Generator_RowDeletingName="CityRowDeleting" msprop:Generator_RowEvArgName="CityRowChangeEvent" msprop:Generator_TablePropName="City" msprop:Generator_RowChangedName="CityRowChanged" msprop:Generator_RowChangingName="CityRowChanging" msprop:Generator_TableClassName="CityDataTable" msprop:Generator_RowClassName="CityRow" msprop:Generator_TableVarName="tableCity" msprop:Generator_UserTableName="City">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_UserColumnName="Id" type="xs:string" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="CountryId" msprop:Generator_ColumnPropNameInRow="CountryId" msprop:Generator_ColumnPropNameInTable="CountryIdColumn" msprop:Generator_ColumnVarNameInTable="columnCountryId" msprop:Generator_UserColumnName="CountryId" type="xs:string" minOccurs="0" />
+              <xs:element name="CountryName" msprop:Generator_ColumnPropNameInRow="CountryName" msprop:Generator_ColumnPropNameInTable="CountryNameColumn" msprop:Generator_ColumnVarNameInTable="columnCountryName" msprop:Generator_UserColumnName="CountryName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="Country_City" msdata:parent="Country" msdata:child="City" msdata:parentkey="Id" msdata:childkey="CountryId" msprop:Generator_UserParentTable="Country" msprop:Generator_UserChildTable="City" msprop:Generator_RelationVarName="relationCountry_City" msprop:Generator_ChildPropName="GetCityRows" msprop:Generator_ParentPropName="CountryRow" msprop:Generator_UserRelationName="Country_City" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
