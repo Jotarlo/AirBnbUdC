@@ -21,7 +21,7 @@ namespace AirbnbUdc.Repository.Implementation.Implementation.Parameters
             {
                 using (Core_DBEntities db = new Core_DBEntities())
                 {
-                    if (db.City.Any(x => x.CityName.Equals(record.Name)))
+                    if (!db.City.Any(x => x.CityName.Equals(record.Name)))
                     {
                         CityMapperRepository mapper = new CityMapperRepository();
                         City dbRecord = mapper.MapperT2toT1(record);

@@ -2,18 +2,16 @@
 using AirbnbUdC.Application.Contracts.Contracts.Parameters;
 using AirbnbUdC.Application.Contracts.DTO.Parameters;
 using AirBnbUdC.GUI.Mappers.Parameters;
-using AirBnbUdC.GUI.Models;
 using AirBnbUdC.GUI.Models.Parameters;
-using System.Data.Entity;
-using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
 namespace AirBnbUdC.GUI.Controllers.Parameters
 {
-    public class CityController : Controller
+    public class CitiesController : Controller
     {
         private ICityApplication app = new CityImplementationApplication();
+        private ICountryApplication countryApp = new CountryImplementationApplication();
 
         CityMapperGUI mapper = new CityMapperGUI();
 
@@ -42,7 +40,15 @@ namespace AirBnbUdC.GUI.Controllers.Parameters
         // GET: CityModels/Create
         public ActionResult Create()
         {
-            return View();
+            CityModel model = new CityModel();
+            FillListForView(model);
+            return View(model);
+        }
+
+        private void FillListForView(CityModel model)
+        {
+            CountryMapperGUI countryMapper = new CountryMapperGUI();
+            model.CountryList = countryMapper.MapperT1toT2(countryApp.GetAllRecords(string.Empty));
         }
 
         // POST: CityModels/Create
@@ -50,8 +56,9 @@ namespace AirBnbUdC.GUI.Controllers.Parameters
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name")] CityModel cityModel)
+        public ActionResult Create(CityModel cityModel)
         {
+            ModelState.Remove("Country.Name");
             if (ModelState.IsValid)
             {
                 CityDTO cityDTO = mapper.MapperT2toT1(cityModel);
@@ -74,6 +81,7 @@ namespace AirBnbUdC.GUI.Controllers.Parameters
             {
                 return HttpNotFound();
             }
+            FillListForView(cityModel);
             return View(cityModel);
         }
 
